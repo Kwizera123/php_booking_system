@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   $_SESSION['user-email'] = $email;
   $_SESSION['user-id'] = $result['id'];
   header('Location: ../index.php');
+  exit();
 }
 header('Location: ../sign-up.php');
 

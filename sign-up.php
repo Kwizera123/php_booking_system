@@ -29,21 +29,21 @@ session_start();
             <label for="email" class="label">
               <span class="label-text">email</span>
             </label>
-            <input type="email" name="email" placeholder="account@example.com" class="input input-bordered" required>
+            <input type="email" name="email" placeholder="account@example.com" class="input input-bordered" >
           </div>
 
            <div class="form-control mt-4">
             <label for="password" class="label">
               <span class="label-text">Password</span>
             </label>
-            <input type="password" name="password" placeholder="********" minlength="8" class="input input-bordered" required>
+            <input type="password" name="password" placeholder="********" minlength="8" class="input input-bordered" >
           </div>
 
            <div class="form-control mt-4">
             <label for="verify-password" class="label">
               <span class="label-text">Verify Password</span>
             </label>
-            <input type="password" name="verify-password" placeholder="********" minlength="8" class="input input-bordered" required>
+            <input type="password" name="verify-password" placeholder="********" minlength="8" class="input input-bordered" >
           </div>
           <button type="submit" class="btn btn-neutral mt-6 w-full">Sign Up</button>
           <p class="text-center text-sm mt-4">
