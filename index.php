@@ -83,6 +83,7 @@ session_start();
         <span class="text-sm text-error text-center"><?= $_SESSION['error'] ?></span>
         <?php unset($_SESSION['error']); ?>
         <?php endif; ?>
+        
         <form method="post" action="scripts/book-booking.php" class="mt-4">
           <div class="form-control mt-4">
             <label for="email" class="label">

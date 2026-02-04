@@ -39,7 +39,26 @@ class Database {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
-        /*
-        ** */
+    }
+
+    public function getBookingByDateTime(string $bookingTime) {
+        $sql = "SELECT * FROM bookings WHERE datetime = :bt";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'bt' => $bookingTime
+            ]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function createNewBooking(string $user_id, string $email, string $fullName, string $bookingTime) {
+        $sql = 'INSERT INTO bookings (user_id, email, fullname, datetime, status) VALUES (:uid, :e, :fn, :dt, "schedule")';
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([
+            ':uid' => $user_id,
+            ':e' => $email,
+            ':fn' => $fullName,
+            'dt' => $bookingTime
+            ]);
     }
 }
