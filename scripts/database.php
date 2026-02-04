@@ -61,4 +61,18 @@ class Database {
             'dt' => $bookingTime
             ]);
     }
+
+    public function fetchBookingsById(string $id)
+    {
+        $sql = "SELECT * FROM bookings WHERE user_id = :uid";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':uid' => $id
+            ]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }
+//

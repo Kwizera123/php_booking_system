@@ -1,5 +1,13 @@
 <?php 
 session_start();
+
+if (isset($_SESSION['user-id'])){
+  require_once 'scripts/database.php';
+  $db = new Database();
+  $result = $db->fetchBookingsById($_SESSION['user-id']);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +43,7 @@ session_start();
       <div class="col-span-2 w-full bg-base-100 rounded-xl shadow-xl py-2 px-2">
         <h1 class="text-2xl font-semibold text-center mt-4 mb-4">Your  MOTs</h1>
         <div class="overflow-x-auto">
+          <?php if ($result): ?>
           <table class="table table-zebra">
             <thead>
               <tr>
@@ -83,7 +92,7 @@ session_start();
         <span class="text-sm text-error text-center"><?= $_SESSION['error'] ?></span>
         <?php unset($_SESSION['error']); ?>
         <?php endif; ?>
-        
+
         <form method="post" action="scripts/book-booking.php" class="mt-4">
           <div class="form-control mt-4">
             <label for="email" class="label">
