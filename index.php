@@ -54,28 +54,20 @@ if (isset($_SESSION['user-id'])){
               </tr>
             </thead>
             <tbody>
+              <?php foreach ($result as $row): ?>
               <tr>
-                <td>20-04-2026 10:30</td>
-                <td>John Doe</td>
-                <td>john.doe@example.com</td>
-                <td class="badge badge-error">Fail</td>
+                <td><?=  $row['datetime'] ?></td>
+                <td><?=  $row['fullname'] ?></td>
+                <td><?=  $row['email'] ?></td>
+                <td class="text-orange-600"><?=  $row['status'] ?></td>
               </tr>
-
-                            <tr>
-                <td>13-04-2026 10:30</td>
-                <td> Jane Smith</td>
-                <td>jane.smith@example.com</td>
-                <td class="badge badge-warning">Pending</td>
-              </tr>
-
-                            <tr>
-                <td>06-04-2026 10:30</td>
-                <td> Eric Jane</td>
-                <td>eric.jane@example.com</td>
-                <td class="badge badge-success">Success</td>
-              </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
+          <?php else: ?>
+            <p class="text-sm text-neutral-400 text-center text text-error">No Booking Yet!</p>
+          <?php endif; ?>
+
         </div>
       </div>
       <div class="flex items-center justify-center">
