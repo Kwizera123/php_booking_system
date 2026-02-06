@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   $_SESSION['user-logged-in'] = true;
   $_SESSION['user-email'] = $email;
   $_SESSION['user-id'] = $result['id'];
+  $_SESSION['user-admin'] = $result['isadmin']; //1 is true, 0 is false
   header('Location: ../index.php');
   exit();
 }

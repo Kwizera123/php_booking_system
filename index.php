@@ -7,7 +7,6 @@ if (isset($_SESSION['user-id'])){
   $result = $db->fetchBookingsById($_SESSION['user-id']);
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

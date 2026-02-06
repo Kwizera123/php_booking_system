@@ -73,6 +73,16 @@ class Database {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function fetchAllBookings() 
+    {
+        $sql = "SELECT * FROM bookings";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    }
+
 
 }
 //
