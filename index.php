@@ -121,6 +121,9 @@ if (isset($_SESSION['user-id'])){
         </div>
       </div>
     </div>
+    <?php else: ?>
+      <h1 class="text-5xl font-bold text-center">Welcome Stranger!</h1>
+      <p class="text-xl font-semibold text-center mt-4">Login or Sign up to get started!</p>
     <?php endif; ?>
   </main>
 

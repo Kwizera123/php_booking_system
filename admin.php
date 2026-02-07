@@ -55,6 +55,7 @@ if (isset($_SESSION['user-admin']) && $_SESSION['user-admin'] != 1) {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -64,6 +65,12 @@ if (isset($_SESSION['user-admin']) && $_SESSION['user-admin'] != 1) {
                 <td><?=  $row['fullname'] ?></td>
                 <td><?=  $row['email'] ?></td>
                 <td class="text-orange-600"><?=  $row['status'] ?></td>
+                
+                <?php if ($row['status'] != "Completed"): ?>
+                <td>
+                  <a href="scripts/mark-completed.php?id=<?= $row['id'] ?>" class="btn btn-success w-full">Mark as Completed</a>
+                </td>
+                <?php endif; ?>
               </tr>
               <?php endforeach; ?>
             </tbody>
